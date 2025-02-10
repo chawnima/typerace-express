@@ -5,3 +5,7 @@ export const getSingleRank = async (req: Request, res: Response) => {
   const result = await rankService.getSingleRank();
   res.send(result);
 };
+
+export const postSingleRank = async (req: Request, res: Response) => {
+  
+}

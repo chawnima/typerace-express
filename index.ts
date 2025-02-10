@@ -1,16 +1,15 @@
 import express, { Request, Response } from "express";
+import "dotenv/config";
 import router from "./src/routes";
-const app = express();
+import { errorHandler, notFoundHandler } from "./src/middlewares/error";
 
-const PORT = 3000;
+const app = express();
+const PORT = process.env.PORT;
 
 app.use(express.json());
-
 app.use("/", router);
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+app.use("*",notFoundHandler);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
