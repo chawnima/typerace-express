@@ -6,6 +6,6 @@ const router = express.Router();
 
 router
   .route("/single")
-  .get(rank.getSingleRank).post(validateRank.singleRankValidation);
+  .get(rank.getSingleRank).post(validateRank.singleRankValidation,rank.postSingleRank);
 
 export default router;
