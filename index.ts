@@ -6,7 +6,7 @@ import { errorHandler, notFoundHandler } from "./src/middlewares/error";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
-const HOST_ADDRESS = process.env.HOST_ADDRESS || "localhost";
+const HOST_ADDRESS = process.env.HOST_ADDRESS || "";
 const allowedOrigins = process.env.ORIGIN_URL?.split(",") || [];
 
 app.use(express.json());
