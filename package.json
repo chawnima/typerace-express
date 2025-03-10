@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node dist/index.js",
-    "prisma:db:pull":"npx prisma db pull",
-    "prisma:generate":"npx prisma generate",
-    "prisma:refresh":"npm run prisma:db:pull && npm run prisma:generate && npx prisma migrate dev",
-    "prisma:deploy":"npx prisma migrate deploy"
+    "prisma:db:pull": "npx prisma db pull",
+    "prisma:generate": "npx prisma generate",
+    "prisma:refresh": "npm run prisma:db:pull && npm run prisma:generate && npx prisma migrate dev",
+    "prisma:deploy": "npx prisma migrate deploy"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "json-bigint": "^1.0.0",
+    "socket.io": "^4.8.1",
+    "ws": "^8.18.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {
@@ -35,6 +37,7 @@
     "@types/express": "^5.0.0",
     "@types/json-bigint": "^1.0.4",
     "@types/node": "^22.13.1",
+    "@types/ws": "^8.5.14",
     "prisma": "^6.3.1",
     "typescript": "^5.7.3"
   }
