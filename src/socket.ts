@@ -12,8 +12,15 @@ export class SocketServer {
   }
 
   StartListeners = (socket:Socket) => {
-    socket.join("room1");
-    console.log(`connected. Online users = ${this.io.engine.clientsCount}. User Id = ${socket.id}. Current room = ${Array.from(socket.rooms)} `);
-    socket.on("message", (data) => {console.log("connect")});
+    let roomId = "";
+    const userLog = () =>{
+      console.log(`connected. Online users = ${this.io.engine.clientsCount}. User Id = ${socket.id}. Current room = ${Array.from(socket.rooms)} `);
+    }
+    userLog()
+    socket.on("room-id", (id) => {socket.join(id);userLog();roomId = id});
+    socket.on(`message-room`,(msg)=>{
+      this.io.emit(`message-room`,msg);
+      console.log(`Message from room ${roomId} : ${msg}`);
+    })
   }
 }
