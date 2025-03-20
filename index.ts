@@ -39,7 +39,7 @@ app.use(express.json());
 app.use(cors({ origin: allowedOrigins }));
 app.use("/", router);
 
-new SocketServer(server);
+const socket = new SocketServer(server);
 
 app.use("*", notFoundHandler);
 app.use(errorHandler);
